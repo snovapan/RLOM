@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'users/new'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get    'users',     to: 'users#index',   as: 'users'
+  get    'user/new',       to: 'users#new',     as: 'new_user'
+  post   'user/new',       to: 'users#create',  as: nil
+  get    'user/:id',       to: 'users#show',    as: 'user'
+  put    'user/:id',       to: 'users#update',  as: nil
+  delete 'user/:id',       to: 'users#destroy', as: nil
+  get    'user/:id/edit',  to: 'users#edit',    as: 'edit_user'
+
 end
