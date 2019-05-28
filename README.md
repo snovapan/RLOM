@@ -1,24 +1,24 @@
-# README
+# 儒象岛®
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 简介
 
-Things you may want to cover:
+**儒象岛®** 逆向物流信息管理系统，是您便捷、高效管理退货逆向物流的好助手。
 
-* Ruby version
+**儒象商城** 作为儒象岛®的一部分，展示了退货商品再次销售的流程，帮助企业将退货重新转化为利润。
 
-* System dependencies
 
-* Configuration
+## 项目目录
 
-* Database creation
+这个目录包含了儒象商城的后台系统，使用Ruby on Rails作为框架。
 
-* Database initialization
+## License
 
-* How to run the test suite
+这个项目使用MIT开源协议，协议的具体文件可以在根目录的[LICENSE](LICENSE)文件中找到。
 
-* Services (job queues, cache servers, search engines, etc.)
+## Maintainers
 
-* Deployment instructions
+目前的开发由 [上海第二工业大学](http://www.sspu.edu.cn) 经济与管理学院进行。
 
-* ...
+**主要贡献者**
+
+* Vincent Ying [@vincentying15](https://github.com/vincentying15/)
