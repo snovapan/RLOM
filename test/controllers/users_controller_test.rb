@@ -38,4 +38,19 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     )
   end
 
+  test "should create user" do
+    get new_user_path
+    assert_response :success
+    assert_difference('User.count') do
+      post new_user_path, params: { user: { name: "Vincent Ying", password: "good_password", phone: "18516043499" } }
+      assert_nil flash[:error]
+    end
+  end
+
+  test "should get error message" do
+    assert_no_difference('User.count') do
+      post new_user_path, params: { user: { name: "Vincent Ying", password: "bad", phone: "bad" } }
+      assert_not_nil flash[:error]
+    end
+  end
 end
