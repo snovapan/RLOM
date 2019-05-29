@@ -1,16 +1,19 @@
 <h1>创建用户</h1>
-<%= form_for :user do |f| %>
+<%= form_for @user, url: new_user_path do |f| %>
     <p>
         <%= f.label :name %>
         <%= f.text_field :name %>
+        <%= @user.errors.messages[:name] %>
     </p>
     <p>
         <%= f.label :phone %>
         <%= f.telephone_field :phone %>
+        <%= @user.errors.messages[:phone] %>
     </p>
     <p>
         <%= f.label :password %>
         <%= f.password_field :password %>
+        <%= @user.errors.messages[:password] %>
     </p>
     <p>
         <%= f.submit %>

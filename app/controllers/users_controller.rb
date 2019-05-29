@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def show
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       flash[:error] = "注册失败"
+      render :new
     end
   end
 
