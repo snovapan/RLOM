@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, except: [:new, :create]
 
-  def index
-  end
-
   def new
     @user = User.new
   end

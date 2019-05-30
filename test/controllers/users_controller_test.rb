@@ -3,15 +3,10 @@ require 'test_helper'
 class UsersControllerTest < ActionDispatch::IntegrationTest
   def test_routes
     # test url prefix
-    assert_equal users_path, '/users'
     assert_equal user_path(id: "user_id"), '/user/user_id'
     assert_equal new_user_path, '/user/new'
 
     # test routing
-    assert_routing(
-      { :path => "/users", :method => :get },
-      { :controller => "users", :action => "index" }
-    )
     assert_routing(
       { :path => "/user/new", :method => :get },
       { :controller => "users", :action => "new" }
