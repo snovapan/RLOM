@@ -15,12 +15,18 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.update(edit_params)
+      redirect_to @user
+    else
+      flash[:error] = "注册失败"
+      render :edit
+    end
   end
 
   def create
     @user = User.new(signup_params)
     if @user.save
-      redirect_to user_path(@user)
+      redirect_to @user
     else
       flash[:error] = "注册失败"
       render :new
@@ -33,6 +39,10 @@ class UsersController < ApplicationController
   end
 
   def signup_params
+    params.require(:user).permit(:name, :password, :phone)
+  end
+
+  def edit_params
     params.require(:user).permit(:name, :password, :phone)
   end
 end
