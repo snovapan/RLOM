@@ -24,6 +24,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       { :controller => "users", :action => "update", :id => "id" }
     )
     assert_routing(
+      { :path => "/user/id", :method => :patch },
+      { :controller => "users", :action => "update", :id => "id" }
+    )
+    assert_routing(
       { :path => "/user/id", :method => :delete },
       { :controller => "users", :action => "destroy", :id => "id" }
     )
