@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get    'user/login',     to: 'sessions#new',    as: 'login'
-  post   'user/login',     to: 'sessions#create', as: nil
+  get    'session/login', to: 'sessions#new',    as: 'login'
+  post   'session/login', to: 'sessions#create', as: nil
   get    'user/new',       to: 'users#new',       as: 'new_user'
   post   'user/new',       to: 'users#create',    as: nil
   get    'user/:id',       to: 'users#show',      as: 'user'
