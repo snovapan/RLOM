@@ -4,8 +4,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.new(login_params)
-    if @user.authenticate
+    @user = User.find_by(phone: login_params[:phone])
+    if @user.authenticate(login_params[:password])
+      session[:user_id] = @user.id
       redirect_to @user
     else
       flash[:error] = "登录失败"
@@ -15,6 +16,6 @@ class SessionsController < ApplicationController
 
   private
   def login_params
-    params.permit(:phone, :password)
+    params.require(:user).permit(:phone, :password)
   end
 end
