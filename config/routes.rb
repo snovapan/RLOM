@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get    'site/index',     tp: 'site#index'
   get    'item/index',     to: 'item#index',      as: 'items'
   get    'item/show',      to: 'item#show',       as: 'item'
   get    'item/new',       to: 'item#new',        as: 'new_item'
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
   patch  'user/:id',       to: 'users#update',    as: nil
   delete 'user/:id',       to: 'users#destroy',   as: nil
   get    'user/:id/edit',  to: 'users#edit',      as: 'edit_user'
+  root   'site#index'
 end
