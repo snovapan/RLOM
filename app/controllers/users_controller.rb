@@ -15,8 +15,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(edit_params)
-      redirect_to @user
+    if @current_user.update(edit_params)
+      redirect_to @current_user
     else
       flash[:error] = "注册失败"
       render 'edit'
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(signup_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to @user
     else
       flash[:error] = "注册失败"
@@ -34,11 +35,15 @@ class UsersController < ApplicationController
   end
 
   private
+  def current_user
+    @current_user ||= User.find_by(id:session[:user_id])
+  end
+
   def set_user
     if session[:user_id].nil?
       redirect_to login_path
     else
-      @user = User.find(session[:user_id])
+      @user = current_user
     end
     
   end
