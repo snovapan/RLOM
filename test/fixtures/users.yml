@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  password: MyString
-  phone: MyString
-  email: MyString
-  balance: MyString
+  name: Vincent Ying
+  password: ReallyStrongPassword
+  phone: 18516043499
+  email: vincent_ying_live@outlook.com
+  balance: 5.0
 
 two:
-  name: MyString
-  password: MyString
-  phone: MyString
-  email: MyString
-  balance: MyString
+  name: Someone else
+  password: ReallyStrongPassword
+  phone: 18516043500
+  email: vincent_ying_live@mail.com
+  balance: 5.0

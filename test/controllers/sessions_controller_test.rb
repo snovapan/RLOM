@@ -12,4 +12,21 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
       { :controller => "sessions", :action => "create" }
     )
   end
+
+  test "should login" do
+    get login_path
+    assert_response :success
+    user = users(:one)
+    post login_path,
+      params: { user: { phone: user.phone, password: user.password } }
+    assert_redirected_to user_path(user)
+  end
+
+  test "should fail login" do
+    get login_path
+    assert_response :success
+    post login_path,
+      params: { user: { phone: "bad", password: "bad" } }
+    assert_response :success
+  end
 end
