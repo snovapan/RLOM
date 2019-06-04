@@ -12,6 +12,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       { :controller => "users", :action => "new" }
     )
     assert_routing(
+      { :path => "/user", :method => :get },
+      { :controller => "users", :action => "show"}
+    )
+    assert_routing(
       { :path => "/user/new", :method => :post },
       { :controller => "users", :action => "create" }
     )
