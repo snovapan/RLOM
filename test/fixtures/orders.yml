@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  item: 
-  user: 
+  item: one
+  user: one
   quantity: MyString
 
 two:
-  item: 
-  user: 
+  item: two
+  user: two
   quantity: MyString
