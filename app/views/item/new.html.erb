@@ -5,6 +5,14 @@
         <%= form.text_field :name %>
     </p>
     <p>
+        <%= form.label :stock, '数量' %>
+        <%= form.telephone_field :stock %>
+    </p>
+    <p>
+        <%= form.label :description, '商品详情' %>
+        <%= form.text_area :description%>
+    </p>
+    <p>
         <%= form.submit%>
     </p>
 <% end %>
