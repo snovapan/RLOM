@@ -1,1 +1,14 @@
 <h1>所有商品</h1>
+<table>
+    <tr>
+        <th>商品名称</th>
+        <th>价格</th> 
+      </tr>
+      <% @items.each do |item| %>
+      <tr>
+        <td>item.name</td> 
+        <td>item.price</td>
+      </tr>
+      <% end %>
+</table>
+<%= link_to '添加商品', new_item_url %>

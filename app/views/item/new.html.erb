@@ -1,2 +1,10 @@
-<h1>Item#new</h1>
-<p>Find me in app/views/item/new.html.erb</p>
+<h1>添加商品</h1>
+<%= form_with model: @item do |form| %>
+    <p>
+        <%= form.label :name, '名称' %>
+        <%= form.text_field :name %>
+    </p>
+    <p>
+        <%= form.submit%>
+    </p>
+<% end %>
