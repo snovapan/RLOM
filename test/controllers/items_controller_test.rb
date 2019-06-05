@@ -12,5 +12,9 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
       { :path => "/item/id", :method => :get },
       { :controller => "items", :action => "show", :id => "id" }
     )
+    assert_routing(
+      { :path => "/item/new", :method => :get },
+      { :controller => "items", :action => "new" }
+    )
   end
 end

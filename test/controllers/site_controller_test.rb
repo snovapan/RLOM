@@ -1,9 +1,11 @@
 require 'test_helper'
 
 class SiteControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get site_index_url
-    assert_response :success
+  def test_routes
+    assert_routing(
+      { :path => "/", :method => :get },
+      { :controller => "site", :action => "index" }
+    )
   end
 
 end
