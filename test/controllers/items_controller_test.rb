@@ -17,4 +17,9 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
       { :controller => "items", :action => "new" }
     )
   end
+
+  test "should get index" do
+    get items_path
+    assert_response :success
+  end
 end
