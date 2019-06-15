@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       redirect_to @current_user
     else
       flash[:error] = "注册失败"
-      render 'edit'
+      render :new
     end
   end
 
