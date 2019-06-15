@@ -12,4 +12,6 @@
 #
 
 class Item < ApplicationRecord
+  has_many :cart_items
+  has_many :user, :through => :cart_items
 end
