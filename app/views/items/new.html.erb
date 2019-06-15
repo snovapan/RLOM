@@ -1,5 +1,5 @@
 <h1>添加商品</h1>
-<%= form_with model: @item, url: item_path do |form| %>
+<%= form_with model: @item, url: items_path do |form| %>
     <p>
         <%= form.label :name, '名称' %>
         <%= form.text_field :name %>
@@ -7,6 +7,10 @@
     <p>
         <%= form.label :stock, '数量' %>
         <%= form.telephone_field :stock %>
+    </p>
+    <p>
+        <%= form.label :price, '价格' %>
+        <%= form.text_field :price %>
     </p>
     <p>
         <%= form.label :description, '商品详情' %>
