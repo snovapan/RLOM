@@ -2,18 +2,18 @@ require 'test_helper'
 
 class ItemsControllerTest < ActionDispatch::IntegrationTest
   def test_routes
-    assert_equal items_path, '/item/index'
-    assert_equal item_path(id: "id"), '/item/id'
+    assert_equal items_path, '/items'
+    assert_equal item_path(id: "id"), '/items/id'
     assert_routing(
-      { :path => "/item/index", :method => :get },
+      { :path => "/items", :method => :get },
       { :controller => "items", :action => "index" }
     )
     assert_routing(
-      { :path => "/item/id", :method => :get },
+      { :path => "/items/id", :method => :get },
       { :controller => "items", :action => "show", :id => "id" }
     )
     assert_routing(
-      { :path => "/item/new", :method => :get },
+      { :path => "/items/new", :method => :get },
       { :controller => "items", :action => "new" }
     )
   end
