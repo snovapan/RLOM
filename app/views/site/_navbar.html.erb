@@ -1,1 +1,7 @@
 <%= link_to '所有商品', items_path %>
+
+<% if logged_in? %>
+    <h5><%= link_to @current_user.name, user_path(@current_user) %></h5>
+<% else %>
+    <h5><%= link_to '登录', login_path %></h5>
+<% end %>
