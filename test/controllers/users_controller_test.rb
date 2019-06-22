@@ -3,40 +3,40 @@ require 'test_helper'
 class UsersControllerTest < ActionDispatch::IntegrationTest
   def test_routes
     # test url prefix
-    assert_equal user_path(id: "user_id"), '/user/user_id'
-    assert_equal new_user_path, '/user/new'
+    assert_equal user_path(id: "user_id"), '/users/user_id'
+    assert_equal new_user_path, '/users/new'
 
     # test routing
     assert_routing(
-      { :path => "/user/new", :method => :get },
+      { :path => "/users/new", :method => :get },
       { :controller => "users", :action => "new" }
     )
     assert_routing(
-      { :path => "/user", :method => :get },
-      { :controller => "users", :action => "show"}
+      { :path => "/users", :method => :get },
+      { :controller => "users", :action => "index"}
     )
     assert_routing(
-      { :path => "/user/new", :method => :post },
+      { :path => "/users", :method => :post },
       { :controller => "users", :action => "create" }
     )
     assert_routing(
-      { :path => "/user/id", :method => :get },
+      { :path => "/users/id", :method => :get },
       { :controller => "users", :action => "show", :id => "id"}
     )
     assert_routing(
-      { :path => "/user/id", :method => :put },
+      { :path => "/users/id", :method => :put },
       { :controller => "users", :action => "update", :id => "id" }
     )
     assert_routing(
-      { :path => "/user/id", :method => :patch },
+      { :path => "/users/id", :method => :patch },
       { :controller => "users", :action => "update", :id => "id" }
     )
     assert_routing(
-      { :path => "/user/id", :method => :delete },
+      { :path => "/users/id", :method => :delete },
       { :controller => "users", :action => "destroy", :id => "id" }
     )
     assert_routing(
-      { :path => "/user/id/edit", :method => :get },
+      { :path => "/users/id/edit", :method => :get },
       { :controller => "users", :action => "edit", :id => "id" }
     )
   end
@@ -45,14 +45,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get new_user_path
     assert_response :success
     assert_difference('User.count') do
-      post new_user_path, params: { user: { name: "Vincent Ying", password: "good_password", phone: "18516043499" } }
+      post users_path, params: { user: { name: "Vincent Ying", password: "good_password", phone: "18516043499" } }
       assert_nil flash[:error]
     end
   end
 
   test "should get error message" do
     assert_no_difference('User.count') do
-      post new_user_path, params: { user: { name: "Vincent Ying", password: "bad", phone: "bad" } }
+      post users_path, params: { user: { name: "Vincent Ying", password: "bad", phone: "bad" } }
       assert_not_nil flash[:error]
     end
   end
