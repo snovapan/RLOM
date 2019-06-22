@@ -1,14 +1,14 @@
 <nav>
     <ul>
         <li><%= link_to '儒象商城', site_index_path %></li>
-        <li ><%= link_to '商品', items_path %></li>
+        <li><%= link_to '商品', items_path %></li>
         <li class="navbar-right">
-            <%= link_to '购物车', users_cart_path %>
             <% if logged_in? %>
                 <%= link_to @current_user.name, user_path(@current_user) %>
             <% else %>
                 <%= link_to '登录', login_path %>
             <% end %>
         </li>
+        <li class="navbar-right"><%= link_to '购物车', carts_path %></li>
     </ul>
 </nav>

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post  'session/login',  to: 'sessions#create', as: nil
   get   'session/logout', to: 'sessions#destroy',as: 'logout'
   get   'users/cart',     to: 'users#cart',      as: 'users_cart'
+  get   'carts/show',     to: 'carts#show',      as: 'carts'
+  
   resources :users
   resources :items
   root   'site#index'
