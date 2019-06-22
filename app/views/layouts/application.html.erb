@@ -11,11 +11,14 @@
 
   <body>
     <%= render 'layouts/navbar' %>
+    
     <% if flash.any? %>
       <%= flash[:error] %>
       <%= flash[:success] %>
     <% end %>
-    
-    <%= yield %>
+
+    <div class="body-container">
+      <%= yield %>
+    </div>
   </body>
 </html>
