@@ -1,0 +1,11 @@
+<h1>创建订单</h1>
+
+<h3>
+    <%= @item.name %>
+</h3>
+<p>数量: <%= @quantity %></p>
+<%= form_for(:request, url: orders_path) do |form| %>
+    <%= hidden_field_tag 'item_id', @item.id  %>
+    <%= hidden_field_tag 'quantity', @quantity  %>
+    <%= form.submit "购买"%>
+<% end %>

@@ -1,0 +1,16 @@
+<h1>我的订单</h1>
+<% if logged_in? %>
+<% if current_user.orders.count == 0 %>
+<p>您还没有订单, 前往<%= link_to "挑选商品", items_path %></p>
+<% end %>
+<ul>
+    <% current_user.orders.each do |order| %>
+    <li>
+        <p><%= link_to order.item.name, order.item %></p>
+        <p>数量: <span><%= order.quantity %></span> 单价: <span><%= order.item.price %></span></p>
+    </li>
+    <% end %>
+</ul>
+<% else %>
+<p>访问购物车, 请先<%= link_to '登录', login_path %></p>
+<% end %>
