@@ -1,4 +1,5 @@
 <h1>购物车</h1>
+<% if logged_in? %>
 <ul>
     <% current_user.cart_items.each do |cart| %>
     <li>
@@ -7,3 +8,6 @@
     </li>
     <% end %>
 </ul>
+<% else %>
+访问购物车, 请先<%= link_to '登录', login_path %>
+<% end %>
