@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get   'session/logout', to: 'sessions#destroy',as: 'logout'
   get   'users/cart',     to: 'users#cart',      as: 'users_cart'
   get   'carts/show',     to: 'carts#show',      as: 'carts'
-  
   resources :users
   resources :items
+  resources :orders
   root   'site#index'
 end
