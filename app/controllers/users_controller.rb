@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, except: [:new, :create]
 
   def new
+    if logged_in?
+      logout
+    end
     @user = User.new
   end
 
