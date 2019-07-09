@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
     if registered_user.authenticate(login_params[:password])
       @user = registered_user
       session[:user_id] = @user.id
+      flash[:success] = "登录成功"
       redirect_to @user
     else
       flash[:error] = "密码错误"

@@ -1,11 +1,13 @@
-<h1>创建订单</h1>
+<h1>确认订单</h1>
 
 <h3>
     <%= @item.name %>
 </h3>
 <p>数量: <%= @quantity %></p>
+<p>单价: <%= @item.price.to_f %></p>
+<p>总价: <%= (@item.price.to_f * @quantity.to_f) %></p>
 <%= form_for(:request, url: orders_path) do |form| %>
     <%= hidden_field_tag 'item_id', @item.id  %>
     <%= hidden_field_tag 'quantity', @quantity  %>
-    <%= form.submit "购买"%>
+    <%= form.submit "确认购买"%>
 <% end %>

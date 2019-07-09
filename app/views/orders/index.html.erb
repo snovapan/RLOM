@@ -1,16 +1,19 @@
-<h1>我的订单</h1>
+<h1>历史订单</h1>
 <% if logged_in? %>
 <% if current_user.orders.count == 0 %>
 <p>您还没有订单, 前往<%= link_to "挑选商品", items_path %></p>
 <% end %>
 <ul>
     <% current_user.orders.each do |order| %>
-    <li>
-        <p><%= link_to order.item.name, order.item %></p>
-        <p>数量: <%= order.quantity %></p>
-        <p>单价: <%= order.item.price %></p>
-        <p>状态: 已完成</p>
-    </li>
+    <div class="order-box">
+        <li>
+            <p>创建时间: <%= order.created_at %></p>
+            <p><%= link_to order.item.name, order.item %></p>
+            <p>数量: <%= order.quantity %></p>
+            <p>单价: <%= order.item.price %></p>
+            <p>状态: 已完成</p>
+        </li>
+    </div> 
     <% end %>
 </ul>
 <% else %>
