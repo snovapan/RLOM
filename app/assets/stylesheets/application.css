@@ -16,6 +16,8 @@
 body {
     margin: 0px;
 }
+h1, h2, h3, h4, h5, p {
+}
 
 html, body {
     font-family:  Verdana,sans-serif;
@@ -138,4 +140,7 @@ div.cart-box {
     padding: 20px 20px;
     background-color: #f2f2f2;
     border-radius: 5px;
+}
+a {
+    color: #0066ff;
 }

@@ -1,5 +1,5 @@
 <div id="signup-window">
-<h1>创建用户</h1>
+<h1>注册商城用户</h1>
 <%= form_with(model: @user, url: users_path, local: true)do |f| %>
     <p>
         <%= f.label :name, "用户名" %>
@@ -21,6 +21,10 @@
         <% if @user.errors.messages[:password] != [] %>
             <%= @user.errors.messages[:password] %>
         <% end %>
+    </p>
+    <p>
+        已有账号, <%= link_to '登录', login_path %>
+    </p>
     <p>
         <%= f.submit "注册" %>
     </p>

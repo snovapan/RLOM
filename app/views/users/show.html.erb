@@ -1,12 +1,14 @@
-<h1>账户信息</h1>
+<div id="user-info-window">
+    <div id="balance-window">
+        <h5>账户余额</h5>
+        <h1><%= @user.balance %> 象币</h1>
+    </div>
+    <h1>账户信息</h1>
 
-<h5>姓名</h5>
-<p><%= @user.name %></p>
+    <h5>姓名</h5>
+    <p><%= @user.name %></p>
 
-<h5>手机</h5>
-<p><%= @user.phone %></p>
-
-<h5>余额</h5>
-<p><%= @user.balance %></p>
-
-<%= link_to '退出登录', logout_path %>
+    <h5>手机</h5>
+    <p><%= @user.phone %></p>
+    <%= link_to '退出登录', logout_path %>
+</div>
