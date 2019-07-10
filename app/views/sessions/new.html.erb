@@ -1,6 +1,6 @@
 <div id="login-window">
     <h1>账号登录</h1>
-    <%= form_with(model: @user, url: login_path, local: true )do |form| %>
+    <%= form_with( model: @user, url: login_path, local: true )do |form| %>
         <p><%= form.label :phone, "手机" %></p>
         <p><%= form.telephone_field :phone%></p>
         <p><%= form.label :password, "密码" %></p>
