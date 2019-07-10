@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get   'users/cart',     to: 'users#cart',      as: 'users_cart'
   get   'carts/show',     to: 'carts#show',      as: 'carts'
   resources :users
-  resources :items
   resources :orders
+  resources :items do
+    resources :comments
+  end
   root   'site#index'
 end

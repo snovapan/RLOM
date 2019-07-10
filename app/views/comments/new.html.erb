@@ -1,0 +1,12 @@
+<h1>添加评论</h1>
+<h2><%= @item.name %></h2>
+<h3><%= @item.price %> 象币</h3>
+<%= form_with( model: @comment, url: item_comments_path(@item), local:true ) do |form| %>
+    <p>
+        <%= form.label :body, "详细评价"%>
+        <%= form.text_field :body %>
+    </p>
+    <p>
+        <%= form.submit "提交" %>
+    </p>
+<% end %>

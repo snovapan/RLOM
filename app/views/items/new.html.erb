@@ -1,5 +1,5 @@
 <h1>添加商品</h1>
-<%= form_with model: @item, url: items_path do |form| %>
+<%= form_with(model: @item, url: items_path, local: true) do |form| %>
     <p>
         <%= form.label :name, '名称' %>
         <%= form.text_field :name %>
