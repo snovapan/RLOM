@@ -126,14 +126,6 @@ div.flash-error {
     border-radius: 5px; 
 }
 
-div.order-box {
-    box-sizing: border-box;
-    margin: 20px 20px;
-    padding: 20px 20px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-}
-
 div.cart-box {
     box-sizing: border-box;
     margin: 20px 20px;
