@@ -2,6 +2,9 @@
 <html>
   <head>
     <title>RLOM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,17 +15,13 @@
   <body>
     <%= render 'layouts/navbar' %>
     <% if not flash[:error].nil? %>
-      <div class="flash-error">
         <%= flash[:error] %>
-      </div>
     <% end %>
     <% if not flash[:success].nil? %>
-      <div class="flash-success">
         <%= flash[:success] %>
-      </div>
     <% end %>
-    <div class="body-container">
+
       <%= yield %>
-    </div>
+  
   </body>
 </html>
