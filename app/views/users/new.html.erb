@@ -1,31 +1,42 @@
-<div id="signup-window">
-<h1>注册商城用户</h1>
-<%= form_with(model: @user, url: users_path, local: true)do |f| %>
-    <p>
-        <%= f.label :name, "用户名" %>
-        <%= f.text_field :name %>
-        <% if @user.errors.messages[:name] != [] %>
-            <%= @user.errors.messages[:name] %>
-        <% end %>
-    </p>
-    <p>
-        <%= f.label :phone, "手机号" %>
-        <%= f.telephone_field :phone %>
-        <% if @user.errors.messages[:phone] != [] %>
-            <%= @user.errors.messages[:phone] %>
-        <% end %>
-    </p>
-    <p>
-        <%= f.label :password, "密码" %>
-        <%= f.password_field :password %>
-        <% if @user.errors.messages[:password] != [] %>
-            <%= @user.errors.messages[:password] %>
-        <% end %>
-    </p>
-    <p>
-        已有账号, <%= link_to '登录', login_path %>
-    </p>
-    <p>
-        <%= f.submit "注册" %>
-    </p>
-<% end %>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        
+        <div class="col">
+            <h1>注册商城用户</h1>
+            <%= form_with(model: @user, url: users_path, local: true)do |f| %>
+            
+                <div class="form-group">
+                    <%= f.label :name, "用户名" %>
+                    <%= f.text_field :name, :class=>"form-control" %>
+                    <% if @user.errors.messages[:name] != [] %>
+                        <%= @user.errors.messages[:name] %>
+                    <% end %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :phone, "手机号" %>
+                    <%= f.telephone_field :phone, :class=>"form-control" %>
+                    <% if @user.errors.messages[:phone] != [] %>
+                        <%= @user.errors.messages[:phone] %>
+                    <% end %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :password, "密码" %>
+                    <%= f.password_field :password, :class=>"form-control" %>
+                    <% if @user.errors.messages[:password] != [] %>
+                        <%= @user.errors.messages[:password] %>
+                    <% end %>
+                </div>
+                <p>
+                    已有账号, <%= link_to '登录', login_path %>
+                </p>
+                
+                <button type="submit" class="btn btn-primary">创建账号</button>
+            <% end %>
+        </div>
+
+        <div class="col"></div>
+    </div>
+</div>

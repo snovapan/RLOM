@@ -1,19 +1,32 @@
-<div id="login-window">
-    <h1>账号登录</h1>
-    <%= form_with( model: @user, url: login_path, local: true )do |form| %>
-        <p><%= form.label :phone, "手机" %></p>
-        <p><%= form.telephone_field :phone%></p>
-        <p><%= form.label :password, "密码" %></p>
-        <p><%= form.password_field :password %></p>
-        <p>
-            <%= form.check_box :keep_login %>
-            <%= form.label :keep_login, "保持登录"%>        
-        </p>
-        <p>
-            还没有账号？<%= link_to '立即注册', new_user_path %>
-        </p>
-        <p>
-            <%= form.submit "登录"%>
-        </p>
-    <% end %>
+<div class="conatiner">
+    <div class="row">
+        <div class="col"></div>
+
+        <div class="col">
+            <h1>账号登录</h1>
+            <%= form_with( model: @user, url: login_path, local: true ) do |form| %>
+                
+                <div class="form-group">
+                    <%= form.label :phone, "手机" %>
+                    <%= form.telephone_field :phone, :class=>"form-control" %>
+                </div>
+                
+                <div class="form-group">
+                    <%= form.label :password, "密码" %>
+                    <%= form.password_field :password, :class=>"form-control" %>
+                </div>
+
+                <div class="form-group form-check">
+                    <%= form.check_box :keep_login, :class=>"form-check-input" %>
+                    <%= form.label :keep_login, "保持登录" %>        
+                </div>
+                
+                <p>还没有账号？<%= link_to '立即注册', new_user_path %></p>
+
+                <button type="submit" class="btn btn-primary">登录</button>
+            <% end %>
+        </div>
+
+        <div class="col"></div>
+    </div>
 </div>

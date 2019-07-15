@@ -1,14 +1,56 @@
-<div id="user-info-window">
-    <div id="balance-window">
-        <h5>账户余额</h5>
-        <h1><%= @user.balance %> 象币</h1>
+<div class="container">
+
+    <h1>个人中心</h1>
+
+    <div class="jumbotron border shadow">
+        
+        <h2>账户资料</h2>
+        
+        <hr>
+        <h5>姓名</h5>
+        <div class="row">
+            <div class="col">
+                <p>
+                    <%= @user.name %>
+                </p>
+            </div>
+            <div class="col-auto">
+                <p><%= link_to '修改姓名', edit_user_path(@user)%></p>
+            </div>
+        </div>
+
+        <hr>
+
+        <h5>手机号</h5>
+        <div class="row">
+            <div class="col">
+                <p>
+                    <%= @user.phone %>
+                </p>
+            </div>
+            <div class="col-auto">
+                <p><%= link_to '修改手机号', edit_user_path(@user)%></p>
+            </div>
+        </div>
+
+        <hr>
+
+        <h5>余额</h5>
+        <div class="row">
+            
+            <div class="col">
+                <p>
+                    <%= @user.balance %> 象币
+                </p>
+            </div>
+            
+            <div class="col-auto">
+                <%= link_to '历史账单'%>
+            </div>
+
+        </div>
+        <hr>
+
     </div>
-    <h1>账户信息</h1>
 
-    <h5>姓名</h5>
-    <p><%= @user.name %></p>
-
-    <h5>手机</h5>
-    <p><%= @user.phone %></p>
-    <%= link_to '退出登录', logout_path %>
 </div>
