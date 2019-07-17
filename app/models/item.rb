@@ -13,9 +13,9 @@
 #
 
 class Item < ApplicationRecord
-  belongs_to :products
+
   has_many :cart_items
   has_many :order_items
   has_many :comment
-  has_many_attached :images
+  has_one_attached :image
 end

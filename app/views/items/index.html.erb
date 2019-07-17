@@ -1,4 +1,27 @@
 <h1>所有商品</h1>
+<div class="row">
+  <% @items.each do |item| %>
+  <div class="col">
+    <div class="card" style="width: 18rem;">
+      <%= image_tag item.image, :class=>"card-img-top" if item.image.attached? %>
+      <div class="card-body">
+        <h5 class="card-title"><%= item.name %></h5>
+        <p class="card-text"><%= item.description %></p>
+        <%= link_to "购买", new_order_path(:item_id=>item, :quantity=>1), :class=>"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
 <table>
     <tr>
         <th>商品名称</th>
