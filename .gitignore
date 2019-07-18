@@ -31,5 +31,6 @@
 /config/master.key
 .DS_Store
 
-# Ignore svn
+# Ignore others
 /.svn
+/.idea

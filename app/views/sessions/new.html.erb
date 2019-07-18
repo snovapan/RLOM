@@ -1,8 +1,6 @@
 <div class="conatiner">
     <div class="row">
-        <div class="col"></div>
-
-        <div class="col">
+        <div class="col" style="margin-left: 10%; margin-right: 10%">
             <h1>账号登录</h1>
             <%= form_with( model: @user, url: login_path, local: true ) do |form| %>
                 
@@ -26,7 +24,5 @@
                 <button type="submit" class="btn btn-primary">登录</button>
             <% end %>
         </div>
-
-        <div class="col"></div>
     </div>
 </div>
