@@ -22,3 +22,4 @@
 **主要贡献者**
 
 * Vincent Ying [@vincentying15](https://github.com/vincentying15/)
+* snovapan [@snovapan](https://github.com/snovapan)
