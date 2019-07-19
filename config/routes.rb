@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :admins
   get   'site/index',     to: 'site#index'
   get   'session/login',  to: 'sessions#new',    as: 'login'
   post  'session/login',  to: 'sessions#create', as: nil
