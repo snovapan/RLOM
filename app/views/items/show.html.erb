@@ -1,5 +1,15 @@
+<style>
+p{margin:0;padding:0;}
+*{margin: 0; padding: 0; list-style: none;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+</style>
+<p class="order-head-detail ">商品详情</p>
+
+   <div class="ad-img"><%= image_tag @item.image %></div>
+
 <h4><%= @item.name %></h4>
 <p><%= @item.description %></p>
-<%= image_tag @item.image %>
+
 
 <%= link_to "购买", new_order_path(:item_id=>@item, :quantity=>1) %>
