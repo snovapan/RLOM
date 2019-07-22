@@ -1,15 +1,140 @@
 <style>
-p{margin:0;padding:0;}
-*{margin: 0; padding: 0; list-style: none;
-  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-}
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
 </style>
 <p class="order-head-detail ">商品详情</p>
+<div class="body">
+<div class="pro-box">
+  <div class="ad-img"><%= image_tag @item.image %></div>
+  <div class="pro-detail-til">
+    <p class="ad-title"><%= @item.name %></p>
+    <!--            <p class="list03p2">顶级</p>-->
+    <!--            <p class="list03p3">800g</p>-->
+  </div>
+  <div class="clear"></div>
 
-   <div class="ad-img"><%= image_tag @item.image %></div>
+  <div class="ad-detail ">
+    <div class="pos-rel">
+      <p class="fl"><span><%= @item.price.to_f %></span>&nbsp;象币</p>
+      <ul class="pro-number-box fr bott">
+        <li class=" number-btn">
+          <p class="minus">-</p>
+        </li>
+        <li class=" number-btn">
+          <input type="text" id="hyNum" maxlength="6" value="1" onchange="getTotalPrice()">
+        </li>
+        <li class=" number-btn"><p class="plus">+</p></li>
 
-<h4><%= @item.name %></h4>
-<p><%= @item.description %></p>
+      </ul>
+      <script>
+          $(function () {
+
+              $('.minus').click(function () {
+                  var hyNum = parseFloat($('#hyNum').val());
+                  if (hyNum >= 2) {
+                      $('#hyNum').val(hyNum - 1);
+                      var tex = (hyNum - 1) * 0.01;
+                      $('#hyPrice').text(tex.toFixed(2));
+                      $('#hyPayPrice').text(tex.toFixed(2));
+                  }
+              });
+              $('.plus').click(function () {
+                  var hyNum = parseFloat($('#hyNum').val());
+
+                  if (hyNum >= 1) {
+                      $('#hyNum').val(hyNum + 1);
+                      var tex = (hyNum + 1) * 0.01;
+                      $('#hyPrice').text(tex.toFixed(2));
+                      $('#hyPayPrice').text(tex.toFixed(2));
+                  }
+              });
+
+              $('#hyNum').keyup(function () {
+                  var hyNum = parseFloat($('#hyNum').val());
+
+                  if (hyNum >= 1) {
+
+                      var tex = hyNum * 0.01;
+                      $('#hyPrice').text(tex.toFixed(2));
+                      $('#hyPayPrice').text(tex.toFixed(2));
+                  }
+              });
+          });
+
+      </script>
+    </div>
+    <div class=" clear"></div>
+
+    <div class="pro-detail-p2" >
+      <table>
+        <tr>
+          <td class="tel">快递费0.00元</td>
+          <!--          <td>销量3045笔</td>-->
+          <td class="ter" style="padding-right:.4rem;">库存<%= @item.stock %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="pro-tex-box" >
+  <!--  <p><%#= @item.description %></p>-->
+  <p class="pro-tp tex-indent"><%= @item.description %></p>
+  
+</div>
+
+<div class="pro-comment-box">
+    <p class="pro-comment-p1">宝贝评价</p>
+		<div class="pro-comment-body">
+			<p class="pro-comment-pname fl">你***蕾</p>
+			<p class="pro-comment-pt fr">2019-07-22</p>
+			<p class=" pro-comment-p2 readonly">呵呵哈哈哈或或或或或或或或或或或或或或或呵呵哈哈哈或或或或或或或或或或或或或或或</p>
+	   </div>
+	   <div class="pro-comment-body">
+			<p class="pro-comment-pname fl">你***蕾</p>
+			<p class="pro-comment-pt fr">2019-07-22</p>
+			<p class=" pro-comment-p2 readonly">呵呵哈哈哈或或或或或或或或或或或或或或或呵呵哈哈哈或或或或或或或或或或或或或或或</p>
+	   </div>
+</div>
+<div class="pro-comment-kb">--------我是有底线的--------</div>
+  <br>
+</div>
+<!--/*底下导航*/-->
+<table width="100%" class="pro-footer">
+  <tr>
+    <td style="height:20px;"></td>
+  </tr>
+  <tr>
+    <td class="pro-foot ">
+      <a class="black-a" href="#"> 商品详情</a>
+    </td>
+    <td class="pro-foot y-shop-btn">
+      <button type="button" class="y-shop-btn">加入购物车</button>
+    </td>
+    <td class="pro-foot r-shop-btn">
+      <a style="color:#fff;" href="#">
+        <button type="button" class="r-shop-btn" style="color:#fff;"><%= link_to "立即购买", new_order_path(:item_id => @item, :quantity => 1), :class => "btn-buy" %></button>
+      </a>
+    </td>
+  </tr>
+</table>
 
 
-<%= link_to "购买", new_order_path(:item_id=>@item, :quantity=>1) %>
+
+
+
+
+
+
+
+
+

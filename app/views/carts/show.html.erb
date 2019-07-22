@@ -1,15 +1,130 @@
-<h1>购物车</h1>
+<style>
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    display: none
+  }
+
+  label {
+    width: 20px;
+    height: 40px;
+    display: inline-block;
+    cursor: pointer;
+    padding-top: 5px;
+  }
+
+  label input[type="checkbox"] + span {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url("/assets/checkbj.png") no-repeat;
+    background-position: 0 0;
+  }
+
+  label input[type="checkbox"]:checked + span {
+    background-position: 0 -20px;
+  }
+
+</style>
+<p class="order-head-detail ">购物车</p>
 <% if logged_in? %>
-<ul>
+  <ul>
     <% current_user.cart_items.each do |cart| %>
-    <div class="order-box">
+      <div class="order-box">
         <li>
-            <p><%= link_to cart.item.name, cart.item %></p>
-            <p>数量: <span><%= cart.quantity %></span> 单价: <span><%= cart.item.price %> 象币</span></p>
+          <p><%= link_to cart.item.name, cart.item %></p>
+          <p>数量: <span><%= cart.quantity %></span> 单价: <span><%= cart.item.price %> 象币</span></p>
         </li>
-    </div>
+      </div>
     <% end %>
-</ul>
+  </ul>
 <% else %>
-访问购物车, 请先<%= link_to '登录', login_path %>
+  访问购物车, 请先<%= link_to '登录', login_path %>
 <% end %>
+
+
+<div class="body bodybox">
+
+  <div class="order-box">
+    <table class=" oeder-car-table fl">
+      <td class="list01"><label><input type="checkbox"><span></span></label></td>
+      <td class="list02"><img src="img/timg (2).jpg"></td>
+      <td class="list03">
+        <p class="list03p1">香醇普洱</p>
+        <p class="list03p2">顶级</p>
+        <p class="list03p3">800g</p>
+        <p class="list03p4">￥198.00</p>
+      </td>
+      <td></td>
+    </table>
+    <ul class="number-box fr">
+      <li class=" number-btn">
+        <p class="minus">-</p>
+      </li>
+      <li class=" number-btn">
+        <input type="text" id="hyNum" maxlength="6" value="1" onchange="getTotalPrice()">
+      </li>
+      <li class=" number-btn"><p class="plus">+</p></li>
+    </ul>
+    <script>
+        $(function () {
+            $('.minus').click(function () {
+                var hyNum = parseFloat($('#hyNum').val());
+                if (hyNum >= 2) {
+                    $('#hyNum').val(hyNum - 1);
+                    var tex = (hyNum - 1) * 0.01;
+                    $('#hyPrice').text(tex.toFixed(2));
+                    $('#hyPayPrice').text(tex.toFixed(2));
+                }
+            });
+            $('.plus').click(function () {
+                var hyNum = parseFloat($('#hyNum').val());
+
+                if (hyNum >= 1) {
+                    $('#hyNum').val(hyNum + 1);
+                    var tex = (hyNum + 1) * 0.01;
+                    $('#hyPrice').text(tex.toFixed(2));
+                    $('#hyPayPrice').text(tex.toFixed(2));
+                }
+            });
+            $('#hyNum').keyup(function () {
+                var hyNum = parseFloat($('#hyNum').val());
+                if (hyNum >= 1) {
+                    var tex = hyNum * 0.01;
+                    $('#hyPrice').text(tex.toFixed(2));
+                    $('#hyPayPrice').text(tex.toFixed(2));
+                }
+            });
+        });
+
+    </script>
+    <div class=" clear"></div>
+  </div>
+
+  <div class="kb1"></div>
+</div>
+<div class="total">
+  <ul class=" left-ul fl">
+    <li><label><input type="checkbox"><span></span></label></li>
+    <li>全选</li>
+    <li>删除</li>
+  </ul>
+  <ul class="right-ul fr">
+    <li>合计：</li>
+    <li class="total-li02">￥198.00</li>
+    <li class="total-li03">结算（<span>n</span>）</li>
+  </ul>
+</div>
