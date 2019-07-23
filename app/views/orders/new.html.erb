@@ -1,13 +1,92 @@
-<h1>确认订单</h1>
+<style>
+p{margin:0;padding:0;}
+*{margin: 0; padding: 0; list-style: none;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+</style>
 
-<h3>
-    <%= @item.name %>
-</h3>
-<p>数量: <%= @quantity %></p>
-<p>单价: <%= @item.price.to_f %></p>
-<p>总价: <%= (@item.price.to_f * @quantity.to_f) %></p>
+<p class="order-head-detail ">确认订单</p>
+<% if false %>
+<ul class=" list-unstyled order-ul1">
+<li>
+<p ><span class="  col-xs-4 col-md-4  text-right">名字:</span>
+<span class="col-xs-6 col-md-6 text-left "><%= @item.name %></span></p>
+<p ><span class="  col-xs-6 col-md-6  text-right">数量:</span><span class="col-xs-6 col-md-6 text-left "><%= @quantity %></span></p>
+ <p ><span class=" col-xs-6 col-md-6  text-right">单价:</span><span class="col-xs-6 col-md-6 text-left "><%= @item.price.to_f %></span></p>
+ <p ><span class="  col-xs-6 col-md-6  text-right">总价:</span><span class="col-xs-6 col-md-6 text-left "><%= (@item.price.to_f * @quantity.to_f) %></span></p>
+
 <%= form_for(:request, url: orders_path, local: true) do |form| %>
     <%= hidden_field_tag 'item_id', @item.id  %>
     <%= hidden_field_tag 'quantity', @quantity  %>
-    <%= form.submit "确认购买"%>
+    <%= form.submit "确认购买",:class=>"btn btn-primary fr btn-mar"%>
 <% end %>
+<div class="clear"></div>
+  </li></ul>
+<% end %>
+
+<div style="padding-top:10px;">
+<div class="body body-box">
+    <div class="order-box" >
+        
+        <table class=" oeder-car-table fl">
+          
+            <td class="list04"><%= image_tag @item.image,:class=>"card-img-left",height:100 if @item.image.attached? %></td>
+           
+            <td class="list03">
+                <p class="list03p6"><%=@item.name %></p>
+                 <p class="list03p4"><%= @item.price.to_f %></p>
+                 <p class="list03p5">X<span><%= @quantity %></span></p>
+<!--                <p class="list03p2">顶级</p>-->
+<!--                <p class="list03p3">800g</p>-->
+            </td>
+			
+        </table>
+    <div class=" clear"></div>	
+    </div>
+    
+  
+    <div class="order-detail-box">
+    	<div class="order-detail bbt">
+        	<p class="order-detail-p01 fl">共1件商品</p>
+            <p class="order-detail-p02 fr">小计：<span class="colyellow"><%= (@item.price.to_f * @quantity.to_f) %></span></p>
+            <div class="clear"></div>
+        </div>
+        <div class="order-detail bbt">
+        	<p class="order-detail-p01 fl">运费</p>
+            <p class="order-detail-p02 fr">0.00</p>
+            <div class="clear"></div>
+        </div>
+       <!-- <div class="order-detail">
+        	<p class="order-detail-p01 fl">我的优惠券</p>
+            <p class="order-detail-p02 fr">
+            	<span class="coloryellow">无</span>
+                <i class="iconfont ">&#xe735;</i>
+             </p>
+            <div class="clear"></div>
+        </div>
+        <div class="order-detail">
+        	<p class="order-detail-p01 fl">积分:<span>0</span></p>
+            <p class="coloryellow fr">可抵
+            	<span >0</span>元
+             <input type="radio" name="" id="" value="">
+             </p>
+            
+            <div class="clear"></div>
+        </div>
+    </div>-->
+   <div class="order-detail-total">
+   	<p>应付金额 <span class="colred"><%= (@item.price.to_f * @quantity.to_f) %></span></p>
+   </div> 
+    
+</div>
+<%= form_for(:request, url: orders_path, local: true) do |form| %>
+    <%= hidden_field_tag 'item_id', @item.id  %>
+    <%= hidden_field_tag 'quantity', @quantity  %>
+    <%= form.submit "确认购买",:class=>"btn-buy order-make-bottom"%>
+<% end %>
+<div class="clear"></div>
+	
+
+ </div>	
+</li></ul>
+</div>

@@ -1,12 +1,30 @@
-<h1>添加评论</h1>
-<h2><%= @item.name %></h2>
-<h3><%= @item.price %> 象币</h3>
+<style>
+p{margin:0;padding:0;}
+*{margin: 0; padding: 0; list-style: none;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+</style>
+<p class="order-head-detail ">添加评论</p>
+<div class="order-box" >
+        
+        <table class=" comments-table ">
+            <td class="add-list01"><%= image_tag @item.image if @item.image.attached? %></td>
+            <td class="add-list02">
+                <p class="add-list02p1"><%= @item.name %><%= @item.description %></p>
+                
+                <p class="add-list02p2"><%= @item.price %> 象币</p>
+            </td>
+            <td></td>
+        </table>
+</div>
+
+
 <%= form_with( model: @comment, url: item_comments_path(@item), local:true ) do |form| %>
     <p>
-        <%= form.label :body, "详细评价"%>
-        <%= form.text_field :body %>
+        <%= form.label :body, "详细评价 ",:class=>"comment-text1" %><br>
+        <%= form.text_area :body,:class=>"tex-comment" %>
     </p>
     <p>
-        <%= form.submit "提交" %>
+        <%= form.submit "提交",:class=>"btn btn-primary btn-comment " %>
     </p>
 <% end %>
