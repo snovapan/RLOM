@@ -1,8 +1,7 @@
 <style>
 p{margin:0;padding:0;}
-
-
 </style>
+<% session[:page]='orders' %>
 <p class="order-head-detail ">历史订单</p>
 <% if logged_in? %>
   <% if current_user.orders.count == 0 %>
@@ -26,6 +25,9 @@ p{margin:0;padding:0;}
           </p>
           <p>
             <span class=" col-xs-6 col-md-6 text-right">状&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp态:</span><span class="col-xs-6  col-md-6 text-left ">已完成</span>
+          </p>
+          <p>
+            <span class=" col-xs-6 col-md-6 text-right">取货&nbsp&nbsp&nbsp&nbsp码:</span><span class="col-xs-6  col-md-6 text-left "><%= order.picking_up_code %></span>
           </p>
           <p class=" text-right add-idea"><%= link_to '添加评价', new_item_comment_url(order.item) %><p>
         </li>
