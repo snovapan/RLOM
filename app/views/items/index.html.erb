@@ -7,6 +7,7 @@
 
 <%= link_to '添加商品', new_item_url ,:class=>"btn btn-primary"%>
 <br><br>
+<% session[:page]='items' %>
 <p class="order-head-detail ">所有商品</p>
 <br>
 <div class="row">
@@ -27,9 +28,6 @@
     </div>
 
   <% end %>
-</div>
 
-<script>
-    $(function () {
-    });
-</script>
+
+</div>
