@@ -34,12 +34,6 @@
 <!--    </div>-->
 </nav>
 <script>
-  function setPage(page) {
-      var data = {'page':page};
-      $.post('<%=setpage_path %>',data,function(result){
-          debugger;
-      });
-  }
     var page = '<%= session[:page] %>';
     if('site' == page){
         $('.navbar a').removeClass("nav-active");
