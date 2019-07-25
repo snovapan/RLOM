@@ -22,7 +22,7 @@
           </div>
           <p class="card-title car-color2"><%= item.description %></p>
           <%= link_to '编辑商品', edit_item_url(item), :class=>"btn btn-primary" %>
-          <%= link_to '删除商品', item, method: :delete, :class=>"btn btn-primary" %>
+          <%= link_to '删除商品', item, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-primary" %>
         </div>
       </div>
     </div>
