@@ -15,16 +15,7 @@
  */
 @import "bootstrap";
 
-p{margin:0;padding:0;}
-.order-head-detail{color:#fff;background-color:#337ab7;text-align:center;font-size:24px;line-height:32px;}
-.order-ul1{padding-left:20px;padding-right:20px;}
-.order-ul1 li{border:1px solid #eee;border-radius:6px;padding-top:10px;margin-top:10px;background-color:#f6f6f6;
-              box-shadow: 2px 3px 6px #ccc;}
-.add-idea{padding-right:10px;padding-bottom:10px;}
-.btn-mar{margin-right:10px;margin-bottom:10px;}
-.body{ height:100%; background:#f6f6f6;}
-.clear{ clear:both;}
-.fl{ float:left;}
-.fr{ float:right;}
-*{margin: 0; padding: 0; list-style: none;}
-.bodybox { min-height: 100%;}
+.navbar-light .navbar-brand {
+    color: rgba(0, 0, 0, 0.6);
+}
+.nav-active{color:#337ab7 !important;}

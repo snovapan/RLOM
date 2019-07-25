@@ -8,6 +8,7 @@
 #  quantity   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  picking_up_code   :string
 #
 
 class Order < ApplicationRecord

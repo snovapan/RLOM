@@ -30,45 +30,40 @@
           <p class="minus">-</p>
         </li>
         <li class=" number-btn">
-          <input type="text" id="hyNum" maxlength="6" value="1" onchange="getTotalPrice()">
+          <input type="text" id="hyNum" maxlength="6" value="1" readonly onchange="getTotalPrice()">
         </li>
         <li class=" number-btn"><p class="plus">+</p></li>
 
       </ul>
       <script>
           $(function () {
-
               $('.minus').click(function () {
                   var hyNum = parseFloat($('#hyNum').val());
                   if (hyNum >= 2) {
                       $('#hyNum').val(hyNum - 1);
-                      var tex = (hyNum - 1) * 0.01;
-                      $('#hyPrice').text(tex.toFixed(2));
-                      $('#hyPayPrice').text(tex.toFixed(2));
                   }
+                  setSubmit($('#hyNum').val());
               });
               $('.plus').click(function () {
                   var hyNum = parseFloat($('#hyNum').val());
-
                   if (hyNum >= 1) {
                       $('#hyNum').val(hyNum + 1);
-                      var tex = (hyNum + 1) * 0.01;
-                      $('#hyPrice').text(tex.toFixed(2));
-                      $('#hyPayPrice').text(tex.toFixed(2));
                   }
+                  setSubmit($('#hyNum').val());
               });
 
               $('#hyNum').keyup(function () {
                   var hyNum = parseFloat($('#hyNum').val());
-
                   if (hyNum >= 1) {
-
-                      var tex = hyNum * 0.01;
-                      $('#hyPrice').text(tex.toFixed(2));
-                      $('#hyPayPrice').text(tex.toFixed(2));
                   }
               });
           });
+
+          function setSubmit(hyNum){
+              var href = $('#link2').val();
+              href += "&quantity="+hyNum;
+              $('#link').prop('href',href);
+          }
 
       </script>
     </div>
@@ -94,16 +89,18 @@
 
 <div class="pro-comment-box">
     <p class="pro-comment-p1">宝贝评价</p>
-		<div class="pro-comment-body">
+  <% @item.comment.each do |comment| %>
+    <div class="pro-comment-body">
+			<p class="pro-comment-pname fl"><%= comment.user.name %></p>
+			<p class="pro-comment-pt fr"><%= comment.created_at %></p>
+			<p class=" pro-comment-p2 readonly"><%= comment.body %></p>
+	   </div>
+    <% end %>
+	   <!--<div class="pro-comment-body">
 			<p class="pro-comment-pname fl">你***蕾</p>
 			<p class="pro-comment-pt fr">2019-07-22</p>
 			<p class=" pro-comment-p2 readonly">呵呵哈哈哈或或或或或或或或或或或或或或或呵呵哈哈哈或或或或或或或或或或或或或或或</p>
-	   </div>
-	   <div class="pro-comment-body">
-			<p class="pro-comment-pname fl">你***蕾</p>
-			<p class="pro-comment-pt fr">2019-07-22</p>
-			<p class=" pro-comment-p2 readonly">呵呵哈哈哈或或或或或或或或或或或或或或或呵呵哈哈哈或或或或或或或或或或或或或或或</p>
-	   </div>
+	   </div>-->
 </div>
 <div class="pro-comment-kb">--------我是有底线的--------</div>
   <br>
@@ -122,7 +119,8 @@
     </td>
     <td class="pro-foot r-shop-btn">
       <a style="color:#fff;" href="#">
-        <button type="button" class="r-shop-btn" style="color:#fff;"><%= link_to "立即购买", new_order_path(:item_id => @item, :quantity => 1), :class => "btn-buy" %></button>
+        <button type="button" class="r-shop-btn" style="color:#fff;"><%= link_to "立即购买", new_order_path(:item_id => @item,:quantity=>1),:id=>"link",:class => "btn-buy" %></button>
+        <%= hidden_field_tag "link2",new_order_path(:item_id => @item),:id=>"link2"%>
       </a>
     </td>
   </tr>

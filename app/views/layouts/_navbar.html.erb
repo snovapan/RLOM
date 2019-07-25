@@ -1,24 +1,28 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#index-navbar" aria-controls="#index-navbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-    <div class="collapse navbar-collapse" id="index-navbar">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <%= link_to '儒象商城', site_index_path, :class=>"nav-link" %>
-            </li>
-
-            <li class="nav-item">
-                <%= link_to '商品', items_path, :class=>"nav-link" %>        
-            </li>
-            <li class="nav-item">
-                <%= link_to '购物车', carts_path, :class=>"nav-link" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to '订单', orders_path, :class=>"nav-link" %>
-            </li>
-        </ul>
-        <ul class="navbar-nav">
+<!--  <a href="#" class="navbar-brand">儒象商城</a>-->
+  <%= link_to '儒象商城', site_index_path, :class=>"navbar-brand nav-active" %>
+  <%= link_to '商品', items_path, :class=>"navbar-brand" %>
+  <%= link_to '购物车', carts_path, :class=>"navbar-brand" %>
+  <%= link_to '订单', orders_path, :class=>"navbar-brand" %>
+<!--    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#index-navbar" aria-controls="#index-navbar" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--    <span class="navbar-toggler-icon"></span>-->
+<!--  </button>-->
+<!--    <div class="collapse navbar-collapse" id="index-navbar">-->
+<!--        <ul class="navbar-nav mr-auto">-->
+<!--            <li class="nav-item">-->
+                <%#= link_to '儒象商城', site_index_path, :class=>"nav-link" %>
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+                <%#= link_to '商品', items_path, :class=>"nav-link" %>
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+                <%#= link_to '购物车', carts_path, :class=>"nav-link" %>
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+                <%#= link_to '订单', orders_path, :class=>"nav-link" %>
+<!--            </li>-->
+<!--        </ul>-->
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <% if logged_in? %>
                     <%= link_to @current_user.name, user_path(@current_user), :class=>"nav-link" %>
@@ -27,5 +31,39 @@
                 <% end %>
             </li>
         </ul>
-    </div>
+<!--    </div>-->
 </nav>
+<script>
+  function setPage(page) {
+      var data = {'page':page};
+      $.post('<%=setpage_path %>',data,function(result){
+          debugger;
+      });
+  }
+    var page = '<%= session[:page] %>';
+    if('site' == page){
+        $('.navbar a').removeClass("nav-active");
+        $('.navbar a').eq(0).addClass("nav-active");
+    }
+    else if('items' == page){
+        $('.navbar a').removeClass("nav-active");
+        $('.navbar a').eq(1).addClass("nav-active");
+    }
+    else if('carts' == page){
+        $('.navbar a').removeClass("nav-active");
+        $('.navbar a').eq(2).addClass("nav-active");
+    }
+    else if('orders' == page){
+        $('.navbar a').removeClass("nav-active");
+        $('.navbar a').eq(3).addClass("nav-active");
+    }
+</script>
+
+
+
+
+
+
+
+
+
