@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>所有商品</h1>
+  <%= link_to '添加商品', new_item_url %>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">名称</th>
+        <th scope="col">添加日期</th>
+        <th scope="col">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+      <tr>
+        <th scope="row"><%= item.id %></th>
+        <td><%= link_to item.name, item_path(item) %></td>
+        <td><%= item.created_at %></td>
+        <td>
+          <%= link_to '编辑', edit_admin_item_url(item) %>
+          <%= link_to '删除', admin_item_url(item), :method => :delete %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

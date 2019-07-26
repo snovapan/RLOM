@@ -58,16 +58,17 @@
 
 
 <div class="body bodybox">
-
   <div class="order-box">
+    <% @carts.each do |cart_item| %>
+    <% item = cart_item.item %>
     <table class="oeder-car-table fl">
       <td class="list01"><label><input type="checkbox"><span></span></label></td>
-      <td class="list02"><img src="img/timg (2).jpg"></td>
+      <td class="list02"><%= image_tag item.image, height: 200 if item.image.attached? %></td>
       <td class="list03">
-        <p class="list03p1">香醇普洱</p>
+        <p class="list03p1"><%= item.name %></p>
         <p class="list03p2">顶级</p>
         <p class="list03p3">800g</p>
-        <p class="list03p4">￥198.00</p>
+        <p class="list03p4"><%= item.price %></p>
       </td>
       <td></td>
     </table>
@@ -81,6 +82,7 @@
       </li>
       <li class="number-btn"><p class="plus">+</p></li>
     </ul>
+    <% end %>
     <script>
         $(function () {
             $('.minus').click(function () {

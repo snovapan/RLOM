@@ -4,13 +4,17 @@ Rails.application.routes.draw do
   post  'session/login',  to: 'sessions#create', as: nil
   get   'session/logout', to: 'sessions#destroy',as: 'logout'
   get   'users/cart',     to: 'users#cart',      as: 'users_cart'
-  get   'carts/show',     to: 'carts#show',      as: 'carts'
-  
+
   resources :admins
   resources :users
   resources :orders
+  resources :carts
   resources :items do
     resources :comments
+  end
+
+  namespace :admin do
+    resources :items
   end
   root   'site#index'
 end
