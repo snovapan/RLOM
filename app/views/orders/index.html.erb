@@ -12,7 +12,7 @@ p{margin:0;padding:0;}
       <div class="order-box">
         <li>
           <p>
-            <span class="order-date  col-xs-6 col-md-6  text-right">创建时间:</span><span class="col-xs-6 col-md-6 text-left "><%= order.created_at %></span>
+            <span class="order-date  col-xs-6 col-md-6  text-right">创建时间:</span><span class="col-xs-6 col-md-6 text-left "><%= order.created_at.localtime.to_s(:db) %></span>
           </p>
           <p>
             <span class=" col-xs-4 col-md-4 text-right">名&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp字:</span><span class="col-xs-6 col-md-6 text-left "><%= link_to order.item.name, order.item %></span>

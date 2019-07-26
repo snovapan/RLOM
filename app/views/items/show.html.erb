@@ -101,7 +101,7 @@
   <% @item.comment.each do |comment| %>
     <div class="pro-comment-body">
 			<p class="pro-comment-pname fl"><%= comment.user.name %></p>
-			<p class="pro-comment-pt fr"><%= comment.created_at %></p>
+			<p class="pro-comment-pt fr"><%= comment.created_at.localtime.to_s(:db) %></p>
 			<p class=" pro-comment-p2 readonly"><%= comment.body %></p>
 	   </div>
     <% end %>
