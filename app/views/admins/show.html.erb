@@ -1,13 +1,30 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>姓名:</strong>
+ <p class="order-head-detail ">Show</p>
+<p id="notice" class="note-tip"><%= notice %></p>
+
+
+
+<div class="show-admin-box">
+  <p class="col-6" style="font-weight:bold;text-align:right ">姓名:</p>
+  <p class="col-6"><%= @admin.name%></p>
+</div>
+<div class="clear"></div>
+<div class="show-admin-box">
+  <p class="col-6" style="font-weight:bold;text-align:right ">手机号:</p>
+  <p class="col-6">  <%= @admin.phone %></p>
+</div>
+<div class="clear"></div>
+
+<!--<p>
+  <strong style="width:100px;">姓名:</strong>
   <%= @admin.name %>
 </p>
 
 <p>
   <strong>手机号:</strong>
   <%= @admin.phone %>
-</p>
+</p>-->
 
-<%= link_to '编辑信息', edit_admin_path(@admin) %> |
+<div class="newadmin-b ">
+	<%= link_to '编辑信息', edit_admin_path(@admin) %> |
+</div>

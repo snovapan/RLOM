@@ -1,6 +1,10 @@
 
 p{margin:0;padding:0;}
 .order-head-detail{color:#fff;background-color:#337ab7;text-align:center;font-size:24px;line-height:32px;}
+.head-title{width:100%;color:#fff;background-color:#337ab7;text-align:center;font-size:24px;line-height:32px;}
+.title-left1{width:10%;}
+.title-left1 img{width:50%; margin-bottom:4px;}
+
 .order-ul1{padding-left:20px;padding-right:20px;}
 .order-ul1 li{border:1px solid #eee;border-radius:6px;padding-top:10px;margin-top:10px;background-color:#f6f6f6;
               box-shadow: 2px 3px 6px #ccc;}
@@ -117,7 +121,7 @@ p{margin:0;padding:0;}
 .comments-table td{margin:1rem .2rem;}
 .tex-comment{ margin:10px;border-radius:10px;width:96%;height:200px;}
 .btn-comment{width:90%; margin:5%}
-.comment-text1{}
+.comment-text1{padding-left:10px;}
 
 /*宝贝评价展示*/
 .pro-comment-box{margin-top:10px;padding-left:.4rem;padding-right:.4rem;}
@@ -131,5 +135,23 @@ p{margin:0;padding:0;}
 .car-color1{color:#333;font-size:1.2rem;}
 .car-color2{color:#888;font-size:.8rem;clear:both;}
 .car-price-num{font-size:1rem;}
+
+/*创建管理员*/
+.table-pm{border:1px solid #ddd;}
+.newadmin-b{width:100%; text-align:center;}
+.mlmr{margin-left:auto; margin-right:auto;}
+.input-adm{border:1px solid #ccc;border-radius:8px;}
+.row-admin{ padding-top:10px;}
+.mart-adm{margin-top:20px;}
+.show-admin-box p{float:left;}
+.note-tip{ text-align:center; background-color:#E3B256;color:#fff;}
+
+
+
+
+
+
+
+
 
 
