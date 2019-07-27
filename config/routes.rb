@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :admins
   resources :users
   resources :orders
-  resources :items do
+  resources :items
+  resources :products do
     resources :comments
   end
   namespace :admin do
