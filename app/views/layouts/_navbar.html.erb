@@ -2,7 +2,6 @@
 <!--  <a href="#" class="navbar-brand">儒象商城</a>-->
   <%= link_to '儒象商城', site_index_path, :class=>"navbar-brand nav-active" %>
   <%= link_to '商品', items_path, :class=>"navbar-brand" %>
-  <%= link_to '购物车', carts_path, :class=>"navbar-brand" %>
   <%= link_to '订单', orders_path, :class=>"navbar-brand" %>
 <!--    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#index-navbar" aria-controls="#index-navbar" aria-expanded="false" aria-label="Toggle navigation">-->
 <!--    <span class="navbar-toggler-icon"></span>-->
@@ -14,9 +13,6 @@
 <!--            </li>-->
 <!--            <li class="nav-item">-->
                 <%#= link_to '商品', items_path, :class=>"nav-link" %>
-<!--            </li>-->
-<!--            <li class="nav-item">-->
-                <%#= link_to '购物车', carts_path, :class=>"nav-link" %>
 <!--            </li>-->
 <!--            <li class="nav-item">-->
                 <%#= link_to '订单', orders_path, :class=>"nav-link" %>
@@ -43,13 +39,9 @@
         $('.navbar a').removeClass("nav-active");
         $('.navbar a').eq(1).addClass("nav-active");
     }
-    else if('carts' == page){
-        $('.navbar a').removeClass("nav-active");
-        $('.navbar a').eq(2).addClass("nav-active");
-    }
     else if('orders' == page){
         $('.navbar a').removeClass("nav-active");
-        $('.navbar a').eq(3).addClass("nav-active");
+        $('.navbar a').eq(2).addClass("nav-active");
     }
 </script>
 

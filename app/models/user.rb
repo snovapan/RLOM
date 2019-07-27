@@ -13,7 +13,6 @@
 #
 
 class User < ApplicationRecord
-  has_many :cart_items
   has_many :orders
   
   validates :name, presence: true
