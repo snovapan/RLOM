@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Admins</h1>
 
-<table>
+
+  <p class="order-head-detail ">Admins</p>
+
+<table class="table table-condensed table-pm">
   <thead>
     <tr>
       <th>Name</th>
       <th>Phone</th>
-      <th>Password</th>
-      <th colspan="3"></th>
+     <!-- <th>Password</th>-->
+      <th colspan="3">操作</th>
     </tr>
   </thead>
 
@@ -17,6 +19,7 @@
       <tr>
         <td><%= admin.name %></td>
         <td><%= admin.phone %></td>
+		
         <td><%= link_to 'Show', admin %></td>
         <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
         <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,6 +28,6 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Admin', new_admin_path %>
+<div class="newadmin-b">
+  <%= link_to 'New Admin', new_admin_path,:class=>"btn btn-primary mlmr" %>
+  </div>

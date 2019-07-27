@@ -14,9 +14,9 @@
                     <%= @user.name %>
                 </p>
             </div>
-            <div class="col-auto">
-                <p><%= link_to '修改姓名', edit_user_path(@user)%></p>
-            </div>
+<!--            <div class="col-auto">-->
+<!--                <p><%#= link_to '修改姓名', edit_user_path(@user)%></p>-->
+<!--            </div>-->
         </div>
 
         <hr>
@@ -28,9 +28,9 @@
                     <%= @user.phone %>
                 </p>
             </div>
-            <div class="col-auto">
-                <p><%= link_to '修改手机号', edit_user_path(@user)%></p>
-            </div>
+<!--            <div class="col-auto">-->
+<!--                <p><%#= link_to '修改手机号', edit_user_path(@user)%></p>-->
+<!--            </div>-->
         </div>
 
         <hr>
@@ -45,7 +45,7 @@
             </div>
             
             <div class="col-auto">
-                <%= link_to '历史账单'%>
+                <%= link_to '历史账单', orders_path %>
             </div>
 
         </div>
