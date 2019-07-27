@@ -10,6 +10,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  history     :text
+#  product_id  :integer
 #
 
 class Item < ApplicationRecord
