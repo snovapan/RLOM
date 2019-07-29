@@ -17,18 +17,18 @@ p{margin:0;padding:0;}
 <div class="order-box" >
         
         <table class=" comments-table ">
-            <td class="add-list01"><%= image_tag @item.image if @item.image.attached? %></td>
+            <td class="add-list01"><%= image_tag @product.image if @product.image.attached? %></td>
             <td class="add-list02">
-                <p class="add-list02p1"><%= @item.name %><%= @item.description %></p>
+                <p class="add-list02p1"><%= @product.name %><%= @product.description %></p>
                 
-                <p class="add-list02p2"><%= @item.price %> 象币</p>
+                <p class="add-list02p2"><%= @product.price %> 象币</p>
             </td>
             <td></td>
         </table>
 </div>
 
 
-<%= form_with( model: @comment, url: item_comments_path(@item), local:true ) do |form| %>
+<%= form_with( model: @comment, url: product_comments_path(@item), local:true ) do |form| %>
     <p>
         <%= form.label :body, "详细评价 ",:class=>"comment-text1" %><br>
         <%= form.text_area :body,:class=>"tex-comment" %>

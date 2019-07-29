@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_19_031920) do
+ActiveRecord::Schema.define(version: 2019_07_29_103251) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -41,29 +41,19 @@ ActiveRecord::Schema.define(version: 2019_07_19_031920) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cart_items", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "item_id"
-    t.string "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_cart_items_on_item_id"
-    t.index ["user_id"], name: "index_cart_items_on_user_id"
-  end
-
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "item_id"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_comments_on_item_id"
+    t.integer "product_id"
+    t.index ["product_id"], name: "index_comments_on_product_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.string "price"
+    t.float "price"
     t.string "stock"
     t.string "description"
     t.datetime "created_at", null: false
@@ -97,7 +87,7 @@ ActiveRecord::Schema.define(version: 2019_07_19_031920) do
     t.string "password"
     t.string "phone"
     t.string "email"
-    t.string "balance"
+    t.float "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

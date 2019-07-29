@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_user, :set_item
+  before_action :set_user, :set_product
 
   def new
     @comment = Comment.new
@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new
     @comment.user = @user
-    @comment.item = @item
+    @comment.product = @product
     @comment.body = comment_params[:body]
     if @comment.save
       flash[:success] = "添加评论成功"
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comments = Comment.find_by(item_id: @item)
+    @comments = Comment.find_by(product_id: @product)
   end
 
   def destroy
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:body)
   end
-  def set_item
-    @item = Item.find(params[:item_id])
+  def set_product
+    @product = Product.find(params[:product_id])
   end
 end
