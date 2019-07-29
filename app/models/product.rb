@@ -12,4 +12,8 @@
 
 class Product < ApplicationRecord
   has_many :items
+
+  def stock
+    self.items.count
+  end
 end
