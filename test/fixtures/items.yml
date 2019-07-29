@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  name        :string
-#  price       :string
+#  price       :float
 #  stock       :string
 #  description :string
 #  created_at  :datetime         not null
